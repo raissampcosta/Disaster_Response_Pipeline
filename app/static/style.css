@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f6f6f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #3B82F6;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.navbar-nav > li > a {
+    color: #ffffff !important;
+}
+
+.navbar-nav > li > a:hover {
+    color: #1E40AF !important; /* azul escuro */
+}
+
+.jumbotron {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    margin-top: 80px;
+}
+
+input.form-control {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button.btn-success {
+    background-color: #10b981;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-success:hover {
+    background-color: #059669;
+}
+
+h1, h4 {
+    color: #111827;
+}
+
+.list-group-item-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    font-weight: 500;
+    border: none;
+}
+
+.list-group-item-dark {
+    background-color: #f6f6f6;
+    color: #6b7280;
+    border: none;
+}
+
+.page-header {
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #9ca3af;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.btn-classify {
+    background-color: #F79B6D;
+    border: none;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-classify:hover {
+    background-color: #F7B36D;
+}
