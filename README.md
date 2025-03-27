@@ -6,8 +6,7 @@ This project is part of a disaster response pipeline that processes real message
 - [Project Motivation](#project-motivation)  
 - [File Descriptions](#file-descriptions)
 - [How to Run the Project](#how-to-run-the-project)
-- [Results](#results)  
-- [Licensing, Authors, Acknowledgements](#licensing-authors-acknowledgements)
+- [Results](#results) 
 
 ### Installation
 To run this project, you’ll need Python 3 and the following libraries installed:
