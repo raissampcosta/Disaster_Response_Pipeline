@@ -63,19 +63,28 @@
 
     <div class="row" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
     <div class="graph-card">
-        <div id="{{ ids[0] }}"></div>
+      {% if ids is defined %}
+      	<div id="{{ ids[0] }}"></div>
+      {% endif %}
+
     </div>
     <div class="graph-card">
+      {% if ids is defined %}
         <div id="{{ ids[1] }}"></div>
+      {% endif %}
     </div>
 </div>
 
     <div class="row" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
         <div class="graph-card">
+          {% if ids is defined %}
             <div id="{{ ids[2] }}"></div>
+          {% endif %}
         </div>
         <div class="graph-card">
+          {% if ids is defined %}
             <div id="{{ ids[3] }}"></div>
+          {% endif %}
         </div>
     </div>
 
