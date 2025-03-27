@@ -15,6 +15,15 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    """
+    Tokenize and lemmatize the input text.
+
+    Args:
+        text (str): Raw text message.
+
+    Returns:
+        list: List of cleaned, lowercased, and lemmatized tokens.
+    """
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -37,7 +46,17 @@ model = joblib.load("../models/classifier.pkl")
 @app.route('/')
 @app.route('/index')
 def index():
+    """
+    Render the main index page with four Plotly visualizations:
+    - Bar chart with message count and percentage by genre.
+    - Pareto chart showing cumulative % of most frequent categories.
+    - Heatmap of correlation between top 10 categories.
+    - 100% stacked bar chart of top 5 categories by genre.
 
+    Returns:
+        str: Rendered HTML template with embedded graph JSON.
+    """
+    
     # Graph 1: Bar chart showing message count by genre with a line for percentage distribution
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
@@ -237,6 +256,12 @@ def index():
 # web page that handles user query and displays model results
 @app.route('/go')
 def go():
+    """
+    Render the results page with the classification of the user's message.
+
+    Returns:
+        str: Rendered HTML template with classification results.
+    """
     # save user input in query
     query = request.args.get('query', '') 
 
@@ -253,6 +278,9 @@ def go():
 
 
 def main():
+    """
+    Start the Flask application on host 0.0.0.0 and port 3000 with debug mode on.
+    """
     app.run(host='0.0.0.0', port=3000, debug=True)
 
 

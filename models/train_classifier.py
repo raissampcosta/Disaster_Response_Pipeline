@@ -16,6 +16,17 @@ nltk.download('punkt')
 nltk.download('wordnet')
 
 def load_data(database_filepath):
+    """
+    Load data from SQLite database and split into features and targets.
+
+    Args:
+        database_filepath (str): Path to the SQLite database file.
+
+    Returns:
+        X (Series): Messages (features).
+        Y (DataFrame): Category labels (targets).
+        category_names (Index): List of category names.
+    """
     engine = create_engine('sqlite:///{db_name}'.format(db_name = database_filepath))
     df = pd.read_sql_table('messages_categories', con = engine)
     X = df.message
@@ -25,6 +36,15 @@ def load_data(database_filepath):
     return X, Y, category_names
     
 def tokenize(text):
+    """
+    Tokenize and lemmatize input text.
+
+    Args:
+        text (str): Text to process.
+
+    Returns:
+        list: List of cleaned and lemmatized tokens.
+    """
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
     
@@ -37,6 +57,12 @@ def tokenize(text):
 
 
 def build_model():
+    """
+    Build a machine learning pipeline and perform randomized search for hyperparameter tuning.
+
+    Returns:
+        RandomizedSearchCV: Grid search model object with pipeline and parameters.
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer = tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -53,6 +79,15 @@ def build_model():
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    Evaluate the trained model and print classification report for each category.
+
+    Args:
+        model: Trained RandomizedSearchCV model.
+        X_test (Series): Test set messages.
+        Y_test (DataFrame): True labels for test set.
+        category_names (Index): List of category names.
+    """
     model = model.best_estimator_
     y_pred = model.predict(X_test)
     
@@ -64,10 +99,25 @@ def evaluate_model(model, X_test, Y_test, category_names):
         print("-" * 50)
 
 def save_model(model, model_filepath):
+    """
+    Save the trained model as a pickle file.
+
+    Args:
+        model: Trained model to be saved.
+        model_filepath (str): File path to save the pickle model.
+    """
     with open(model_filepath, "wb") as archive:
         pickle.dump(model, archive)
 
 def main():
+    """
+    Execute full ML pipeline:
+    - Load data
+    - Build model
+    - Train model
+    - Evaluate model
+    - Save model
+    """
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
