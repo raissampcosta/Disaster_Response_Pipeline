@@ -6,7 +6,8 @@ This project is part of a disaster response pipeline that processes real message
 - [Project Motivation](#project-motivation)  
 - [File Descriptions](#file-descriptions)
 - [How to Run the Project](#how-to-run-the-project)
-- [Results](#results) 
+- [Results](#results)
+- [Licensing, Authors, Acknowledgements](#licensing-authors-acknowledgements) 
 
 ### Installation
 To run this project, you’ll need Python 3 and the following libraries installed:
@@ -79,3 +80,6 @@ The data comes from real messages sent during disaster events and can help emerg
     - Stacked bar of top categories by genre
 
 4. You can also input a custom message and receive real-time classification across multiple disaster-related categories.
+
+### Licensing, Authors, Acknowledgements
+This project is based on Disaster data provided by [Appen](https://www.appen.com/).
