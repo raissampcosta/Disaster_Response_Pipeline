@@ -2,7 +2,7 @@
 This project is part of a disaster response pipeline that processes real messages sent during disasters and classifies them into multiple categories. The project includes a machine learning model and an interactive web dashboard to visualize insights from the data.
 
 ### Table of Contents
-- [Installation](#installation)  
+- [Instructions](#instructions)  
 - [Project Motivation](#project-motivation)  
 - [File Descriptions](#file-descriptions)  
 - [Results](#results)  
@@ -31,26 +31,26 @@ This project was built to:
     - Provide an easy interface for real-time message classification
 
 ### File Descriptions
-├── app
-│   ├── run.py - Flask app with dashboard + classifier
-│   ├── templates/master.html - Main HTML layout
-│   └── static/style.css - Custom styling for UI
-│
-├── data
-│   ├── disaster_messages.csv - Raw message data
-│   ├── disaster_categories.csv - Category labels
-│   ├── process_data.py - Script to clean & save to SQLite
-│   └── DisasterResponse.db - SQLite database
-│
-├── models
-│   ├── train_classifier.py - Model training pipeline
-│   └── classifier.pkl - Saved trained model
+- **`app/`** – Flask web app
+  - `run.py` – Runs the web application and renders the dashboard
+  - `templates/master.html` – Main HTML layout for the dashboard
+  - `static/style.css` – Custom styles for layout and charts
+
+- **`data/`** – Dataset and processing scripts
+  - `disaster_messages.csv` – Raw messages dataset
+  - `disaster_categories.csv` – Raw categories dataset
+  - `process_data.py` – Cleans and stores data into a SQLite database
+  - `DisasterResponse.db` – Final SQLite database with merged and cleaned data
+
+- **`models/`** – Machine learning pipeline
+  - `train_classifier.py` – Trains the classification model
+  - `classifier.pkl` – Trained and serialized model file
 
 ### Results
-The dashboard includes the following visualizations:
+1. The dashboard includes the following visualizations:
     - Genre Distribution (Bar + % Line)
     - Pareto Chart (Cumulative % up to 80%)
     - Correlation Heatmap of Top 10 Categories
     - 100% Stacked Bar: Top Categories by Genre
 
-You can also input a custom message and receive real-time classification across multiple disaster-related categories.
+2. You can also input a custom message and receive real-time classification across multiple disaster-related categories.
